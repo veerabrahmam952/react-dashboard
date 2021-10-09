@@ -1,6 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import { NavLink, useHistory  } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
@@ -23,6 +25,7 @@ import Chart from './_partial/chart';
 import Deposits from './_partial/deposits';
 import Orders from './_partial/orders';
 import axios from 'axios';
+import CustomizedSteppers from '../editortemplates/breadcrumb';
 
 function Copyright() {
   return (
@@ -116,6 +119,9 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+  submit:{
+    width: '27%'
+  }
 }));
 
 export default function Dashboard() {
@@ -128,10 +134,24 @@ export default function Dashboard() {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const history = useHistory();
+  function handleSubmit() {
+    let path = '/aboutyou/personaldetails';
+    history.push(path);
+  }
 
   return (
     <Grid container component="main" spacing={3}>
-          {/* Chart */}
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        className={classes.submit}
+        onClick={handleSubmit}
+      >
+        Create a Policy
+      </Button>
+      {/* Chart */}
       <Grid item xs={12} md={8} lg={9}>
         <Paper className={fixedHeightPaper}>
           <Chart />

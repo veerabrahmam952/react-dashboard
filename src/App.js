@@ -21,8 +21,9 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import SignInPage from './components/signin/signin'
-import Dashboard from './components/dashboard/dashboard'
+import SignInPage from './components/signin/signin';
+import Dashboard from './components/dashboard/dashboard';
+import PersonalDetails from './components/aboutyou/personaldetails';
 function App() {
   const drawerWidth = 0;
 
@@ -145,6 +146,10 @@ function App() {
                 <Route
                   path="/dashboard"
                   render={() => <Dashboard/>}
+                />
+                <Route
+                  path="/aboutyou/personaldetails"
+                  render={() => <PersonalDetails/>}
                 />
               </Switch>
             </div>
